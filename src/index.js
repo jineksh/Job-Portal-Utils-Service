@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import ApiRoutes from './routes/index.js';
 import getCareerAdvice from './Service/carrerGuidance.js';
-import cors from 'cors';
+import cors from 'cors';+
 
 dotenv.config();
 
@@ -20,6 +20,10 @@ app.use(cors({
 
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ limit: '20mb', extended: true }));
+
+app.get('/home',(req,res)=>{
+    res.send('Utils Service is up and running');
+});
 
 app.use('/api',ApiRoutes);
 
